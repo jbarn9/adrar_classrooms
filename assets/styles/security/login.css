@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root{
+    --color: #8CC04D;
+    --color-dark: #72a139;
+    --color-light:#b1d486;
+}
+
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-family: inter;
+}
+
+#formulaire {
+    padding: 3em;
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#formulaire img{
+    margin-top: 2em;
+}
+h2{
+    color: var(--color);
+    font-size: 2em;
+}
+
+form {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    background-color: black;
+    color: white;
+    height: 2em;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 0.5em 0em;
+    margin-top: 0.5em;text-align: center;
+    font-family: inter;
+    font-style: italic;
+
+}
+
+input:focus{
+    border: 2px solid var(--color-light);
+    outline: var(--color-light);
+    color: var(--color-light);
+    font-style: normal;
+
+}
+
+#inputEmail, #inputPassword{
+    width: 100%;
+}
+
+label {
+    margin-top: 0.7em;
+    align-self: flex-start;
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    width: 100%;
+    accent-color: var(--color);
+}
+.checkbox button{
+    width: 50px;
+    margin: 0px;
+}
+
+.checkbox label{
+    margin-left: 0.5em;
+    width: 100%;
+}
+
+#connexion {
+    /* padding: 0.5em 0em; */
+    background-color: var(--color);
+    height: 2em;
+    width: 40%;
+    font-size: large;
+    border: 2px var(--color) solid;
+    border-radius: 5px;
+    color: black;
+    margin: 1em 0em;
+}
+#connexion:hover{
+    background-color: var(--color-dark);
+    border: 2px var(--color-dark) solid;
+}
+
+
+.pubStagiaire {
+    background-color: var(--color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* justify-content: flex-end; */
+    width: 50%;
+    overflow: hidden;
+}
+
+.texte {
+    margin-top: 15%;
+    width: 70%;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+#quote {
+    font-size: 30px;
+    text-align: justify;
+}
+
+#auteur {
+    font-size: 20px;
+}
+
+a{
+    color: var(--color-light);
+}
+a:hover{
+    opacity: 0.8;
+}
+a:visited{
+    color: var(--color-light);
+}
+
+#alreadyConnected{
+    margin-bottom: 0.5em;
+}
+
+.inscription{
+    /* opacity: 0.7; */
+    font-size: 0.9em;
+}
+
+.divider{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+.divider div{
+    width: 100px;
+    margin: 0px 0.5em;
+}
+hr{
+    color: white;
+}
+
+form img{
+    background-color: white;
+    border: 3px solid #D4D4D4;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+form img:hover{
+    opacity: 0.8;
+}

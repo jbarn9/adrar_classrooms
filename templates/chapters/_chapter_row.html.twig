@@ -1,0 +1,7 @@
+<turbo-frame id="chapters_row_{{ chapter.id }}">
+	<div class="chapter_" style="{% if chapter.finished is same as(false) %}background-color: grey{% else %}background-color:green{% endif %}">
+		<a href="{{ path('app_chapter_show', {'id': chapter.id}) }}" data-turbo-frame="chapter_content_frame">
+			{{ chapter.title }}
+		</a>
+	</div>
+</turbo-frame>

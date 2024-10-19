@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+:root{
+    --color: #556eac;
+    --color-dark: #44588a;
+    --color-light:#889ac5;
+}
+
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    font-family: inter;
+}
+
+#pubStagiaire{
+    background-color: var(--color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* justify-content: flex-end; */
+    width: 50%;
+    overflow: hidden;
+}
+
+.texte {
+    margin-top: 15%;
+    width: 70%;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+#quote {
+    font-size: 30px;
+    text-align: justify;
+}
+
+#auteur {
+    font-size: 20px;
+}
+
+#inscription{
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form div{
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+input {
+    background-color: black;
+    color: white;
+    height: 2em;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0.5em 0em;
+    margin-top: 0.2em;
+    width: 400px;
+    font-family: inter;
+    font-style: italic;
+    /* font-size: 1.1em; */
+    /* font-weight: bold; */
+}
+
+input:focus{
+    border: 2px solid var(--color-light);
+    outline: var(--color-light);
+    color: var(--color-light);
+    font-style: normal;
+}
+
+div:has(+button){
+    display: flex;
+    flex-direction: row-reverse !important;
+    align-items: center;
+}
+
+#registration_form_agreeTerms{
+    width: auto;
+    margin: 0px 0.5em 0px 0px;
+    accent-color: var(--color);
+}
+
+button{
+    background-color: var(--color);
+    height: 2em;
+    width: 40%;
+    font-size: large;
+    border: 2px var(--color) solid;
+    border-radius: 5px;
+    color: white;
+    margin: 1em 0em;
+}
+button:hover{
+    background-color: var(--color-dark);
+    border: 2px var(--color-dark) solid;
+
+}
+
+a{
+    color: var(--color-light);
+}
+a:hover{
+    opacity: 0.8;
+}
+a:visited{
+    color: var(--color-light);
+}
+
+h2{
+    color: var(--color);
+    font-size: 2em;
+}

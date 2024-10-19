@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block title %}Connexion{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('styles/security/login.css') }}">
+{% endblock %}
+
+{% block body %}
+<div id="formulaire">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    
+    <img src="{{asset('imgs/adrar-classrooms-logo-green.png')}}" alt="Logo d'adrar classrooms">
+    <form method="post">
+        <h2 class="h3 mb-3 font-weight-normal">Bienvenue</h2>
+        <label for="inputEmail">E-mail</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+        <label for="inputPassword">Mot de passe</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="off" required>
+    
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+        <div class="checkbox mb-3">
+            <input type="checkbox" name="_remember_me" id="rememberMe"> 
+            <label for="rememberMe">Se Souvenir de Moi</label>
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit" id="connexion">
+            Se connecter
+        </button>
+        <p class="inscription">Si vous n'avez pas de compte, vous pouvez vous <a href="{{ path('app_register') }}">Inscrire</a></p>
+        <div class="divider">
+            <div><hr></div>
+            <p>ou continuer avec</p>
+            <div>
+                <hr>
+            </div>
+        </div>
+        <img src="{{asset('imgs/google-logo.png')}}" alt="google_logo">
+    </form>
+    {% if app.user %}
+        <div class="mb-3" id="alreadyConnected">
+            Vous êtes déjà connecté en tant que {{ app.user.userIdentifier }} <a href="">Retour à l'accueil</a> ou <a href="{{ path('app_logout')}}">Déconnexion</a>
+            
+        </div>
+    {% endif %}
+</div>
+<div class="pubStagiaire">
+    <div class="texte">
+        <p id="quote">
+            « J'étais musicien indépendant, mais la COVID a tout stoppé. On m’a parlé d’ADRAR Classrooms, ça m'a ouvert des opportunités professionnelles insoupçonnées. »
+        </p>
+        <p id="auteur">
+            Alexandre - Développeur Full-Stack Junior
+        </p>
+    </div>
+    <img src="{{asset('imgs/portrait-connexion.png')}}" alt="">
+</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

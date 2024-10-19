@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+{{ form_label(form.title) }}
+{{ form_widget(form.title) }}
+
+{{ form_label(form.subtitle) }}
+{{ form_widget(form.subtitle) }}
+
+{{ form_label(form.content) }}
+{{ form_widget(form.content) }}
+{{ form_label(form.course) }}
+{{ form_widget(form.course) }}
+<div class="form-group toggle-btn">
+	{{ form_widget(form.posted, {'attr': {'class': 'toggle-input'}}) }}
+	{# {{ form_label(form.posted) }} #}
+	<label for="chapters_posted"></label>
+	<span class="toggle-text">Poster</span>
+</div>
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

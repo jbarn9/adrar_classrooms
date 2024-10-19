@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/register/register.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="pubStagiaire">
+        <div class="texte">
+            <p id="quote">
+                « J'étais musicien indépendant, mais la COVID a tout stoppé. On m’a parlé d’ADRAR Classrooms, ça m'a ouvert des opportunités professionnelles insoupçonnées. »
+            </p>
+            <p id="auteur">
+                Alexandre - Développeur Full-Stack Junior
+            </p>
+        </div>
+        <img src="{{asset('imgs/portrait-connexion.png')}}" alt="">
+    </div>
+    <div id="inscription">
+        <img src="{{asset('imgs/adrar-classrooms-logo-blue.png')}}" alt="Logo d'adrar classrooms">
+
+        <h2>Inscription</h2>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.firstname, {
+            label: 'Prénom :'
+        }) }}
+        {{ form_row(registrationForm.lastname, {
+            label: 'Nom de Famille :'
+        }) }}
+        {{ form_row(registrationForm.email, {
+            label: 'Courriel :'
+        }) }}
+        {{ form_row(registrationForm.username, {
+            label: 'Pseudonyme :'
+        }) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de Passe :'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">S'inscrire</button>
+    {{ form_end(registrationForm) }}
+    <p>Si vous avez déjà un compte, vous pouvez vous <a href="{{ path('app_login') }}">Connecter</a></p>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

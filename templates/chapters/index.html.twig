@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cours
+{% endblock %}
+{% block body %}
+	<div class="chapters_progress">
+		<div class="chapter_header">
+			<div class="chapter_items">
+				<div class="title">
+					<h1>Cours :
+						{{course.title}}</h1>
+				</div>
+				<div class="info">
+					<div class="duration">
+						<i class="fa-regular fa-clock"></i>
+						Temps :
+						{{course.duration | date('H:i:s')}}</div>
+					<div class="publication_date">
+						<a href="{{course.pdf}}">
+							<i class="fa-regular fa-file-pdf fa-xl" style="color: #000000;"></i>
+						</a>
+						Date de publication :
+						{{course.createdAt|date('Y-m-d H:i:s')}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="chapter_single">
+			<div class="icon-circle">
+				<a href="{{path('app_course_show', {'id': course.id})}}">
+					<i class="fa-solid fa-network-wired"></i>
+				</a>
+			</div>
+			{% set chapterArray = [] %}
+			{% for chapter in chapters %}
+				<turbo-frame id="chapters_row_{{chapter.id}}">
+					<div class="chapter_" style="{% if chapter.finished is same as(false) %}background-color: #d9d9d9{% else %}background-color:green{% endif %}">
+						<a href="{{ path('app_chapter_show', {'id': chapter.id, 'course': course.id }) }}" data-turbo-frame="chapter_content_frame"></a>
+					</div>
+				</turbo-frame>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="chapter_content">
+		<turbo-frame id="chapter_content_frame">
+			<div>
+				<p>Bienvenue dans le cours
+					{{course.title}}</p>
+			</div>
+		</turbo-frame>
+	</div>
+{% endblock %}

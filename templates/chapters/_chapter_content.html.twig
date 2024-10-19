@@ -1,0 +1,52 @@
+{% set currentChapter = chapter.id %}
+{% set nextChapter = false %}
+{% set previousChapter = false %}
+{% set nextChapterValue = 0 %}
+{% set previousChapterValue = 0 %}
+{% for key, chapter in chapterArray|keys %}
+	{{chapterArray[key].id}}
+	{% if currentChapter is same as(chapterArray[key].id) %}
+		{% if chapterArray[key + 1].id is defined %}
+			{% set nextChapter = true %}
+			{% set nextChapterValue = chapterArray[key + 1].id %}
+			{{nextChapterValue}}
+
+		{% endif %}
+		{% if chapterArray[key - 1].id is defined %}
+			{% set previousChapter = true %}
+			{% set previousChapterValue = chapterArray[key - 1].id %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+<turbo-frame id="chapter_content_frame">
+	{% if chapter is defined %}
+		<div class="chapter-content">
+			<div class="chapter_title">
+				<h2>Chapitre :
+					{{ chapter.title }}</h2>
+			</div>
+			<div class="chapter_inside">
+				<p>{{ chapter.content }}</p>
+				<p>{{ chapter.finished ? 'Chapitre terminé !' : 'En cours...' }}</p>
+			</div>
+
+			{% if previousChapter is same as(true) %}
+				<a href="{{ path('app_chapter_show', {'id': previousChapterValue, 'course': course}) }}" data-turbo-frame="chapter_content_frame">
+					Précédent
+				</a>
+			{% endif %}
+			<form action="{{ path('app_chapters_finished', {'id': chapter.id}) }}" method="post" data-turbo-frame="chapter_content_frame">
+				<input type="hidden" name="_token" value="{{ csrf_token('finished_chapter' ~ chapter.id) }}">
+				{% if chapter.finished is same as(false) %}
+					<input type="submit" value="Chapitre terminé !">
+				{% else %}
+					<input type="submit" value="Chapitre pas terminé">
+				{% endif %}
+			</form>
+			{% if nextChapter is same as(true) %}
+				<a href="{{ path('app_chapter_show', {'id': nextChapterValue, 'course': course}) }}" data-turbo-frame="chapter_content_frame">Suivant ></a>
+			{% endif %}
+
+		</div>
+	{% endif %}
+</turbo-frame>

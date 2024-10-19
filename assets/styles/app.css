@@ -1,0 +1,10 @@
+*{
+    /* retirer le css mis par défaut par firefox */
+    margin: 0px;
+    padding: 0px;
+    /* insérer des règles pour les autres navigateur */
+}
+
+body {
+    background-color: skyblue;
+}

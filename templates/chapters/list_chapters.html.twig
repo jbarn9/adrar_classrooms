@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicule index
+{% endblock %}
+
+{% block body %}
+	<div class="table-container">
+		<h1>Index des chapitres</h1>
+
+		<table class="styled-table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Titre</th>
+					<th>Actions</th>
+					<th>Statut en ligne</th>
+					<th>Date de mise en ligne</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for chapter in chapters %}
+					<tr>
+						<td>{{ chapter.id }}</td>
+						<td>{{ chapter.title }}</td>
+						<td>
+							<a href="{{ path('app_chapter_show', {'id': chapter.id}) }}">show</a>
+							<a href="{{ path('app_chapters_edit', {'id': chapter.id}) }}">edit</a>
+						</td>
+						<td>
+							{% if chapter.posted != 0 %}
+								<p>En ligne</p>
+							{% else %}
+								<p>Hors ligne</p>
+							{% endif %}
+						</td>
+						<td>
+							{% if chapter.posted != 0 %}
+								<p>{{ chapter.postedAt|date('Y-m-d H:i:s') }}</p>
+							{% else %}
+								<p>/NR</p>
+							{% endif %}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="5">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<a href="{{ path('app_chapters_new') }}">Create new</a>
+{% endblock %}
