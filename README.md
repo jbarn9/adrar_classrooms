@@ -29,8 +29,8 @@ Construire une API pour aider l'autre équipe à intéragir avec son application
 
 ## Trame :link:
 
-- Le lien vers le Figma est accessible: [`ici`](https://www.figma.com/design/LhgsAaXHN8HVJfpXeyjhDQ/Adrar-Classrooms?node-id=0-1&node-type=canvas)
-- Le lien vers le Trello pour se tenir à jour de nos tâches à accomplir: [`ici`](https://trello.com/b/3H405ux5/symfony-adrar-classrooms)
+- Le lien vers le Figma est accessible: [`ici`]
+- Le lien vers le Trello pour se tenir à jour de nos tâches à accomplir: [`ici`]
 
 ## Rappels :warning:
 
